@@ -57,5 +57,4 @@ public class PendaftaranSpecification implements Specification<Pendaftaran> {
         return null;
     }
 
-//    private Join<Pendaftaran, Jadwaldokter> pendaftaranJadwaldokterJoin
 }
