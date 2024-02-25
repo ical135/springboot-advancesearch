@@ -1,5 +1,7 @@
 package cal.springbootbelajar.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,9 +10,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SearchCriteriaDto {
+    @JsonProperty("key")
     private String filterKey;
+    @JsonProperty("value")
     private Object value;
+    @JsonProperty("operation")
     private String operation;
+    @JsonIgnore
     private String dataOption;
 
     public SearchCriteriaDto(String filterKey, String operation,

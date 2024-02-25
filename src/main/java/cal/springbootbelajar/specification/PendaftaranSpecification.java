@@ -40,9 +40,9 @@ public class PendaftaranSpecification implements Specification<Pendaftaran> {
             case DOES_NOT_END_WITH:
                 return criteriaBuilder.notLike(criteriaBuilder.lower(root.get(searchCriteriaDto.getFilterKey())), "%" + strToSearch);
             case EQUAL:
-                return criteriaBuilder.equal(criteriaBuilder.lower(root.get(searchCriteriaDto.getFilterKey())), searchCriteriaDto.getValue());
+                return criteriaBuilder.equal(root.get(searchCriteriaDto.getFilterKey()), searchCriteriaDto.getValue());
             case NOT_EQUAL:
-                return criteriaBuilder.notEqual(criteriaBuilder.lower(root.get(searchCriteriaDto.getFilterKey())), searchCriteriaDto.getValue());
+                return criteriaBuilder.notEqual(root.get(searchCriteriaDto.getFilterKey()), searchCriteriaDto.getValue());
             case NUL:
                 return criteriaBuilder.isNull(root.get(searchCriteriaDto.getFilterKey()));
             case NOT_NULL:

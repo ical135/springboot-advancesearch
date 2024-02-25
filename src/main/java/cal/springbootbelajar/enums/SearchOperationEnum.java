@@ -12,9 +12,9 @@ public enum SearchOperationEnum {
     public static SearchOperationEnum getDataOption(final String
                                                             dataOption) {
         switch (dataOption) {
-            case "all":
+            case "and":
                 return ALL;
-            case "any":
+            case "or":
                 return ANY;
             default:
                 return null;

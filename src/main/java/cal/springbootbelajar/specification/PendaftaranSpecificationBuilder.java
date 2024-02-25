@@ -16,12 +16,13 @@ public class PendaftaranSpecificationBuilder {
         this.searchCriteriaDtos = new ArrayList<>();
     }
 
-    public final PendaftaranSpecificationBuilder with(String key, String operation, Object value) {
-        searchCriteriaDtos.add(new SearchCriteriaDto(key, operation, value));
-        return this;
-    }
+//    public final PendaftaranSpecificationBuilder with(String key, String operation, Object value) {
+//        searchCriteriaDtos.add(new SearchCriteriaDto(underscoreToCamelCase(key), operation, value));
+//        return this;
+//    }
 
     public final PendaftaranSpecificationBuilder with(SearchCriteriaDto searchCriteriaDto) {
+        searchCriteriaDto.setFilterKey(underscoreToCamelCase(searchCriteriaDto.getFilterKey()));
         searchCriteriaDtos.add(searchCriteriaDto);
         return this;
     }
@@ -39,7 +40,25 @@ public class PendaftaranSpecificationBuilder {
                     : Specification.where(result).or(new PendaftaranSpecification(searchCriteriaDto));
         }
         return result;
+    }
 
+    public static String underscoreToCamelCase(String underscoreString) {
+        StringBuilder camelCaseBuilder = new StringBuilder();
 
+        boolean capitalizeNext = false;
+        for (char c : underscoreString.toCharArray()) {
+            if (c == '_') {
+                capitalizeNext = true;
+            } else {
+                if (capitalizeNext) {
+                    camelCaseBuilder.append(Character.toUpperCase(c));
+                    capitalizeNext = false;
+                } else {
+                    camelCaseBuilder.append(c);
+                }
+            }
+        }
+
+        return camelCaseBuilder.toString();
     }
 }
