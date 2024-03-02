@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 public class SearchCriteriaDto {
     @JsonProperty("key")
     private String filterKey;
-    @JsonProperty("value")
-    private Object value;
     @JsonProperty("operation")
     private String operation;
+    @JsonProperty("value")
+    private Object value;
     @JsonIgnore
     private String dataOption;
 

@@ -27,7 +27,6 @@ public class PendaftaranController {
     @PostMapping(path = "/advance-filter")
     public ResponseEntity<Object> getAdvanceFilter(@RequestBody SearchRequestDto searchRequestDto, Pageable pageable) {
         try {
-            System.out.println("searchRequestDto = " + searchRequestDto);
             return ResponseHandler.generateResponse("Success",
                     HttpStatus.OK,
                     pendaftaranService.getAdvanceFilter(searchRequestDto,
