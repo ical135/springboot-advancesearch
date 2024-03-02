@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cal</groupId>
-	<artifactId>springboot-belajar</artifactId>
+	<artifactId>springboot-advancesearch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-belajar</name>
+	<name>springboot-advancesearch</name>
 	<description>Trial Springboot Project</description>
 	<properties>
 		<java.version>17</java.version>
